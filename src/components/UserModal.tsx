@@ -34,6 +34,20 @@ const UserModal: React.FC<Props> = ({ visible, onClose, onSave }) => {
       showCloseIcon
       width="400px"
       close={onClose}
+      footerTemplate={() => (
+        <div style={{ textAlign: "right" }}>
+          <ButtonComponent cssClass="e-flat" onClick={onClose}>
+            Cancelar
+          </ButtonComponent>
+          <ButtonComponent
+            cssClass="e-primary"
+            onClick={save}
+            style={{ marginLeft: "10px" }}
+          >
+            Salvar
+          </ButtonComponent>
+        </div>
+      )}
     >
       <div style={{ padding: "10px" }}>
         <div style={{ marginBottom: "10px" }}>
@@ -53,18 +67,6 @@ const UserModal: React.FC<Props> = ({ visible, onClose, onSave }) => {
             value={formData.email}
             change={(e: { value: string }) => handleChange("email", e.value)}
           />
-        </div>
-        <div className="e-footer-content" style={{ textAlign: "right" }}>
-          <ButtonComponent onClick={onClose} cssClass="e-flat">
-            Cancelar
-          </ButtonComponent>
-          <ButtonComponent
-            onClick={save}
-            cssClass="e-primary"
-            style={{ marginLeft: "10px" }}
-          >
-            Salvar
-          </ButtonComponent>
         </div>
       </div>
     </DialogComponent>
